@@ -1,0 +1,43 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check site files
+        run: |
+          test -f index.html
+          test -f assets/css/style.css
+          test -f assets/js/main.js
+
+      - name: Upload to hosting
+        if: env.FTP_PASSWORD != ''
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: www/kuzm1n-bigbob.ru/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            docs/**
+            README.md
+            CHANGELOG.md
+            LICENSE
+            .editorconfig
+
+      - name: Skip upload
+        if: env.FTP_PASSWORD == ''
+        run: echo "FTP secrets are not set, upload skipped"
