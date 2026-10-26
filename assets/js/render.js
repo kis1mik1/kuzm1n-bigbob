@@ -68,7 +68,7 @@ function renderProjects() {
     const d = p[lang];
     const link = p.link
       ? `<a class="project-link" href="${p.link}" target="_blank" rel="noopener">GitHub →</a>`
-      : `<span class="project-link off">${t('private')}</span>`;
+      : p.link === null ? `<span class="project-link off">${t('private')}</span>` : '';
     return `<article class="project ${p.type} reveal">
       <div class="project-head"><span class="project-type mono">${t('pt_' + p.type)}</span><div class="project-icon">${svg(p.ic)}</div></div>
       <h3>${d.t}</h3>

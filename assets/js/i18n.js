@@ -81,7 +81,7 @@ export const T = {
     contact_title: 'Давай поработаем',
     contact_lead: 'Открыт к работе с ИИ, стажировкам, международным проектам и переговорам. Удалённо или за границей.',
     c_mail: 'Почта', c_copy: 'Нажми, чтобы скопировать', c_copied: 'Скопировано ✓', c_open: 'Открыть →',
-    footer: 'Сделано вручную: HTML, CSS, JS и canvas · Псс… набери «gold» на клавиатуре',
+    
     toast_k: 'Достижение получено',
     badges: {
       first_move: 'Первый выход на лёд',
@@ -172,7 +172,7 @@ export const T = {
     contact_title: 'Let’s work together',
     contact_lead: 'Open to AI-related roles, internships, international projects and negotiations. Remote or abroad.',
     c_mail: 'Email', c_copy: 'Click to copy', c_copied: 'Copied ✓', c_open: 'Open →',
-    footer: 'Handmade: HTML, CSS, JS and canvas · Psst… type “gold” on your keyboard',
+    
     toast_k: 'Achievement unlocked',
     badges: {
       first_move: 'First shift',
